@@ -1,0 +1,15 @@
+-- To create the user and database
+
+create user 'RemindMeDev'@localhost identified by 'password';
+create database if not exists RemindMeDev;
+grant all privileges on RemindMeDev.* to 'RemindMeDev'@localhost;
+flush privileges;
+
+create table Tasks (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255), 
+    description VARCHAR(1000), 
+    owner VARCHAR(100), 
+    creationDate DATETIME, 
+    dueDate DATETIME
+);

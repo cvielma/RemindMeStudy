@@ -14,7 +14,9 @@
 
     <!-- Enable annotation driven controllers, validation etc... -->
     <mvc:annotation-driven />
-    <context:component-scan base-package="com.librethinking.remindme.controllers" />
+    <!-- Adding com.librethinking.remindme.beans to the component scan, saves specifyin annotation-config bean -->
+    <!-- More info: http://docs.spring.io/autorepo/docs/spring/4.1.1.RELEASE/javadoc-api/org/springframework/context/annotation/Configuration.html -->
+    <context:component-scan base-package="com.librethinking.remindme.controllers, com.librethinking.remindme.config" /> 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix">
             <value>/WEB-INF/views/</value>

@@ -1,3 +1,4 @@
-com/librethinking/remindme/beans/Response.class
+com/librethinking/remindme/pojos/Response.class
+com/librethinking/remindme/beans/content/DefaultItemPersistenceClient.class
 com/librethinking/remindme/controllers/MainController.class
-com/librethinking/remindme/beans/ToDoItem.class
+com/librethinking/remindme/pojos/ToDoItem.class

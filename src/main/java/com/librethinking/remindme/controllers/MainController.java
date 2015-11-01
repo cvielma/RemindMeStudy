@@ -15,14 +15,13 @@
  */
 package com.librethinking.remindme.controllers;
 
-import com.librethinking.remindme.beans.Response;
-import com.librethinking.remindme.beans.ToDoItem;
+import com.librethinking.remindme.beans.interfaces.ItemPersistenceClient;
+import com.librethinking.remindme.pojos.Response;
+import com.librethinking.remindme.pojos.ToDoItem;
 import java.io.IOException;
-import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
+import javax.annotation.Resource;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.time.DateUtils;
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.ObjectWriter;
@@ -39,6 +38,9 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class MainController {
+    @Resource
+    private ItemPersistenceClient itemService;
+    
     private static final Logger logger = Logger.getLogger(MainController.class);
     
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
@@ -63,6 +65,7 @@ public class MainController {
         Response res = new Response();
         res.setStatus("ERROR");
         if (todoItem != null && !StringUtils.isBlank(todoItem.getName())) {
+            itemService.createItem(todoItem);
             res.setStatus("OK");
         }
         return res;
@@ -70,7 +73,7 @@ public class MainController {
     
     @RequestMapping(value = "/list/refresh", method = RequestMethod.POST)
     public @ResponseBody List<ToDoItem> refresh() {
-        List<ToDoItem> list = dummyList();
+        List<ToDoItem> list = itemService.listItems();
         return list;
     }
     
@@ -79,22 +82,11 @@ public class MainController {
     public ModelAndView list() throws IOException {
         ModelAndView mav = new ModelAndView();
         ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-        List<ToDoItem> list = dummyList();
+        List<ToDoItem> list = itemService.listItems();
         mav.addObject("todolist", list);
         mav.addObject("todolistjson", ow.writeValueAsString(list));
         mav.setViewName("list");
-        logger.info("test");
+        logger.info("******************* Test *********************");
         return mav;
-    }
-    
-    private List<ToDoItem> dummyList() {
-        List<ToDoItem> list = new LinkedList<>();
-        Date today = new Date();
-        list.add(new ToDoItem(1, "Item 1", "Do item 1", "Me", today, DateUtils.addDays(today, 1)));
-        list.add(new ToDoItem(2, "Item 2", "Do item 2", "Me", today, DateUtils.addDays(today, -2)));
-        list.add(new ToDoItem(3, "Item 3", "Do item 3", "Me", today, DateUtils.addDays(today, 2)));
-        list.add(new ToDoItem(4, "Item 4", "Do item 4", "Me", today, DateUtils.addDays(today, 3)));
-        list.add(new ToDoItem(5, "Item 5", "Do item 5", "Me", today, DateUtils.addDays(today, 4)));
-        return list;
     }
 }

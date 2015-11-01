@@ -1,3 +1,9 @@
-/home/cvielma/Documents/Development/Workplaces/Netbeans/LearningJava/RemindMeBeta/RemindMe/src/main/java/com/librethinking/remindme/beans/Response.java
-/home/cvielma/Documents/Development/Workplaces/Netbeans/LearningJava/RemindMeBeta/RemindMe/src/main/java/com/librethinking/remindme/controllers/MainController.java
-/home/cvielma/Documents/Development/Workplaces/Netbeans/LearningJava/RemindMeBeta/RemindMe/src/main/java/com/librethinking/remindme/beans/ToDoItem.java
+/home/cvielma/Documents/Development/Workplaces/Netbeans/LearningJava/RemindMeBeta/RemindMeStudy/src/main/java/com/librethinking/remindme/beans/content/MySQLItemPersistenceClient.java
+/home/cvielma/Documents/Development/Workplaces/Netbeans/LearningJava/RemindMeBeta/RemindMeStudy/src/main/java/com/librethinking/remindme/config/AppConfig.java
+/home/cvielma/Documents/Development/Workplaces/Netbeans/LearningJava/RemindMeBeta/RemindMeStudy/src/main/java/com/librethinking/remindme/controllers/MainController.java
+/home/cvielma/Documents/Development/Workplaces/Netbeans/LearningJava/RemindMeBeta/RemindMeStudy/src/main/java/com/librethinking/remindme/beans/content/DefaultItemPersistenceClient.java
+/home/cvielma/Documents/Development/Workplaces/Netbeans/LearningJava/RemindMeBeta/RemindMeStudy/src/main/java/com/librethinking/remindme/beans/interfaces/ItemPersistenceClient.java
+/home/cvielma/Documents/Development/Workplaces/Netbeans/LearningJava/RemindMeBeta/RemindMeStudy/src/main/java/com/librethinking/remindme/pojos/Response.java
+/home/cvielma/Documents/Development/Workplaces/Netbeans/LearningJava/RemindMeBeta/RemindMeStudy/src/main/java/com/librethinking/remindme/pojos/ToDoItem.java
+/home/cvielma/Documents/Development/Workplaces/Netbeans/LearningJava/RemindMeBeta/RemindMeStudy/src/main/java/com/librethinking/remindme/beans/converters/DBToToDoItemConverter.java
+/home/cvielma/Documents/Development/Workplaces/Netbeans/LearningJava/RemindMeBeta/RemindMeStudy/src/main/java/com/librethinking/remindme/config/ConversionServiceProvider.java

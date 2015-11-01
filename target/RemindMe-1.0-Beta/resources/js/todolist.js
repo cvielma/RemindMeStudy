@@ -40,7 +40,27 @@ var ToDoList = new function invocation() {
 
     var refreshList = function () {
         $(listSection).empty();
-        loadList();
+        $.ajax({
+            type: 'POST',
+            url: baseUrl + '/list/refresh',
+            dataType: 'json',
+            contentType: 'application/json',
+            processData:false,
+            async: false,    //Cross-domain requests and dataType: "jsonp" requests do not support synchronous operation
+            cache: false,    //This will force requested pages not to be cached by the browser  
+            success: function (data) {
+                if (data) {
+                    list = data;
+                    loadList();
+                } else {
+                    alert('No data');
+                }
+            },
+            error: function (jqXHR, status, error) {
+                alert('Error: ' + error);
+            }
+        });
+        
     };
 
     var loadList = function () {
